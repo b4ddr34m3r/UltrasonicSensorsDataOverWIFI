@@ -37,7 +37,7 @@ void setup() {
   }
   // WIFI Access Station 
   WiFi.mode(WIFI_STA);
-  WiFiMulti.addAP("SSID", "PASSWORD");
+  WiFiMulti.addAP("communicate", "123456789");
   pinMode(buzzer1, OUTPUT);
   pinMode(buzzer2, OUTPUT);
 }
