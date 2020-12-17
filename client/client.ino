@@ -1,13 +1,16 @@
+// Do not forget to install the libraries.
 #include <ESP8266WiFi.h>
 #include <ESP8266WiFiMulti.h>
 #include <ESP8266HTTPClient.h>
 #include <WiFiClient.h>
 
 ESP8266WiFiMulti WiFiMulti;
-int* UDistances;
+// An Array that will hold the distances retrieved from the server page 
+int* UDistances; 
+// Buzzers pins, the client will react by making a buzz sound
 int buzzer1 = 3, buzzer2 = 6;
 
-// ----------------------------------------------------------
+// ---------------------------------------------------------- a function to split the data retrieved from the client
 int *dataSplitter(String payload){
   String word = "";
   int data[2];
@@ -32,7 +35,7 @@ void setup() {
     Serial.flush();
     delay(1000);
   }
-
+  // WIFI Access Station 
   WiFi.mode(WIFI_STA);
   WiFiMulti.addAP("SSID", "PASSWORD");
   pinMode(buzzer1, OUTPUT);
@@ -70,7 +73,6 @@ void loop() {
           if (0 < UDistances[1] && UDistances[1] < 20) digitalWrite(buzzer2, HIGH);
           
           }
-
           
         }
       } else {
