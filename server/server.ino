@@ -39,5 +39,13 @@ void loop() {
 }
 
 void handleData(){
-   server.send(200, "text/plain", String(dist1) + " " + String(dist2));
+   int state1, state2;
+   // state mean the pin mode (HIGH, LOW)
+   if(dist1 <= 50) state1 = 1;
+   else state1 = 0;
+   
+   if(dist2 <= 50) state2 = 1;
+   else state2 = 0;
+ 
+   server.send(200, "text/plain", String(state1) + " " + String(state2));
   }
