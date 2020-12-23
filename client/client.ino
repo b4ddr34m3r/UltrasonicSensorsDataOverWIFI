@@ -5,27 +5,9 @@
 #include <WiFiClient.h>
 
 ESP8266WiFiMulti WiFiMulti;
-// An Array that will hold the distances retrieved from the server page 
-int* Ustates; 
+ 
 // Buzzers pins, the client will react by making a buzz sound
 int buzzer1 = 3, buzzer2 = 6;
-
-// ---------------------------------------------------------- a function to split the data retrieved from the client
-int *dataSplitter(String payload){
-  char word = '';
-  int data[2];
-  for(char c: payload){
-    if (c == ' '){
-      data[0] = int(word) - '0';
-      word = '';
-      }
-    word = c;
-    }
-     
-    data[1] = int(word) - '0';
-   return data;
-}
-// ---------------------------------------------------------
 
 void setup() {
   Serial.begin(115200);
@@ -67,15 +49,27 @@ void loop() {
           String payload = http.getString();
           Serial.println(payload);
           
-          Ustates = dataSplitter(payload);
-
-          Serial.println(String(Ustates[0]) + " This is state1" );
-          Serial.println(String(Ustates[1]) + " This is state2");
-          
-          digitalWrite(buzzer1, Ustates[0]);
-          digitalWrite(buzzer2, Ustates[1]);
-          
+          if(payload == "1 0"){
+            digitalWrite(buzzer1, HIGH);
+            digitalWrite(buzzer2, LOW);
           }
+          
+          if(payload == "1 1"){
+            digitalWrite(buzzer1, HIGH);
+            digitalWrite(buzzer2, HIGH);
+          }
+          
+          if(payload == "0 1"){
+            digitalWrite(buzzer1, LOW);
+            digitalWrite(buzzer2, HIGH);
+          }
+          
+          if(payload == "0 0"){
+            digitalWrite(buzzer1, LOW);
+            digitalWrite(buzzer2, LOW);
+          }
+          
+         }
           
         }
       } else {
