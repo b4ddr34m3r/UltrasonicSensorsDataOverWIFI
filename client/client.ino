@@ -7,7 +7,7 @@
 ESP8266WiFiMulti WiFiMulti;
  
 // Buzzers pins, the client will react by making a buzz sound
-int buzzer1 = 3, buzzer2 = 6;
+int buzzer1 = 12, buzzer2 = 13;
 
 void setup() {
   Serial.begin(115200);

@@ -3,9 +3,9 @@
 #include <Ultrasonic.h>
 
  // the first ultrasonic sensor pins
-Ultrasonic ulsc1(2,3); // trig, echo
+Ultrasonic ulsc1(5,4); // trig, echo
 // the second ultrasonic sensor pins
-Ultrasonic ulsc2(5,6); // trig, echo
+Ultrasonic ulsc2(13,12); // trig, echo
 
 ESP8266WebServer server(80);   
 // variables will hold the distance data from Sensors.
@@ -32,8 +32,8 @@ void loop() {
    dist1 = ulsc1.read();
    dist2 = ulsc2.read();
  // printing the distance to the serial monitor
-  Serial.println(String(dist1)+ " This is the distance1.");
-  Serial.println(String(dist2)+ " This is the distance2.");
+  //Serial.println(String(dist1)+ " This is the distance1.");
+  //Serial.println(String(dist2)+ " This is the distance2.");
  
  // state mean the pin mode (HIGH, LOW)
    if(dist1 <= 50) state1 = 1;
