@@ -5,10 +5,11 @@
 int U1T = 1, U1E = 2;
 int U2T = 3, U2E = 4;
 
+Ultrasonic ultrasoinc1(U1T, U1E);
+Ultrasonic ultrasoinc2(U2T, U2E);
+
 void setup(){
   Serial.begin(115200);
-  Ultrasonic ultrasoinc1(U1T, U1E);
-  Ultrasonic ultrasoinc2(U2T, U2E);
 }
 
 
