@@ -1,4 +1,4 @@
-#include <Ultrasonic>
+#include <Ultrasonic.h>
 
 // The T in these variables means Trigger
 // and E in these varaibles means Echo
