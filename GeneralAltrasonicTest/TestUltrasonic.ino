@@ -15,8 +15,8 @@ void setup(){
 
 void loop(){
   // Reading distances in centimeters
-  int distanceU1 = ultrasonic1.read();
-  int distanceU2 = ultrasonic2.read();
+  int distanceU1 = ultrasoinc1.read();
+  int distanceU2 = ultrasoinc2.read();
 
   // printing out the distances to the  serial monitors
   Serial.print("Distance of Ultrasonic sensor 1: "); Serial.println(distanceU1);
