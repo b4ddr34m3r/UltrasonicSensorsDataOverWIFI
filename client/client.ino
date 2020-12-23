@@ -69,6 +69,9 @@ void loop() {
           
           Ustates = dataSplitter(payload);
 
+          Serial.println(String(Ustates[0]) + " This is state1" );
+          Serial.println(String(Ustates[1]) + " This is state2");
+          
           digitalWrite(buzzer1, Ustates[0]);
           digitalWrite(buzzer2, Ustates[1]);
           
