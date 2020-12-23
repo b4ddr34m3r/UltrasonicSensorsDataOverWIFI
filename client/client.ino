@@ -6,7 +6,7 @@
 
 ESP8266WiFiMulti WiFiMulti;
 // An Array that will hold the distances retrieved from the server page 
-int* UDistances; 
+int* Ustates; 
 // Buzzers pins, the client will react by making a buzz sound
 int buzzer1 = 3, buzzer2 = 6;
 
@@ -67,10 +67,10 @@ void loop() {
           String payload = http.getString();
           Serial.println(payload);
           
-          UDistances = dataSplitter(payload);
+          Ustates = dataSplitter(payload);
 
-          if (0 < UDistances[0] && UDistances[0] < 20) digitalWrite(buzzer1, HIGH);
-          if (0 < UDistances[1] && UDistances[1] < 20) digitalWrite(buzzer2, HIGH);
+          digitalWrite(buzzer1, Ustates[0]);
+          digitalWrite(buzzer2, Ustates[1]);
           
           }
           
