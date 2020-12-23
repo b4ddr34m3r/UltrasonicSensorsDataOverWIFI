@@ -12,17 +12,17 @@ int buzzer1 = 3, buzzer2 = 6;
 
 // ---------------------------------------------------------- a function to split the data retrieved from the client
 int *dataSplitter(String payload){
-  String word = "";
+  char word = '';
   int data[2];
   for(char c: payload){
     if (c == ' '){
-      data[0] = word.toInt() - '0';
-      word = "";
+      data[0] = int(word) - '0';
+      word = '';
       }
-    word += c;
+    word = c;
     }
      
-    data[1] = word.toInt() - '0';
+    data[1] = int(word) - '0';
    return data;
 }
 // ---------------------------------------------------------
